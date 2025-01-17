@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>WebGIS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <style>
+      html,
+      body,
+      #map {
+        height: 100%;
+        width: 100%;
+        margin: 0%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script>
+      /* Initial Map */
+      var map = L.map("map").setView([-7.9, 110.45], 10);
+
+      /* Tile Basemap */
+      var basemap0 = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      });
+      var Esri_WorldImagery = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        attribution: "Tiles & copy; 23611110 Rama Rasyid Universitas Islam Indonesia",
+      });
+
+      Esri_WorldImagery.addTo(map);
+
+      var customIcon1 = L.icon({
+        iconUrl: "pharmacy.png",
+        iconSize: [40, 40],
+      });
+
+      // Markers for Schools in South Jakarta
+      var marker0 = L.marker([-7.65936039338423, 110.40983298723825], { icon: customIcon1 });
+      marker0.addTo(map);
+      marker0.bindPopup("<b>Apotek Widigdo 5</b><br>8CQ5+6WP, Blembem Kidul, Harjobinangun, Kec. Pakem, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55582");
+      marker0.bindTooltip("Apotek Widigdo 5");
+
+      var marker1 = L.marker([-7.658679873606898, 110.419961008739155], { icon: customIcon1 });
+      marker1.addTo(map);
+      marker1.bindPopup("<b>Apotek Pakem</b><br>8CQC+45P, Jl. Kaliurang, Duwetsari, Pakembinangun, Kec. Pakem, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55582");
+      marker1.bindTooltip("Apotek Pakem");
+
+      var marker2 = L.marker([-7.664464257059872, 110.41858771768817], { icon: customIcon1 });
+      marker2.addTo(map);
+      marker2.bindPopup("<b>Apotek K-24 Pakem Sleman</b><br>Jl. Kaliurang No.Km. 17, Sukanan, Pakembinangun, Kec. Pakem, Yogyakarta, Daerah Istimewa Yogyakarta 55582");
+      marker2.bindTooltip("Apotek K-24 Pakem Sleman");
+
+      var marker3 = L.marker([-7.660891558908766, 110.4191027018323], { icon: customIcon1 });
+      marker3.addTo(map);
+      marker3.bindPopup("<b>Apotek Binangun</b><br>Jl. Kaliurang No.15b, Area Sawah, Pakembinangun, Kec. Pakem, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55582");
+      marker3.bindTooltip("Apotek Binangun");
+
+      var marker4 = L.marker([-7.665995404233688, 110.42820075504497], { icon: customIcon1 });
+      marker4.addTo(map);
+      marker4.bindPopup("<b>Apotek Harmoni Sleman</b><br>Jl. Cangkringan No.32, Kregan, Umbulmartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584");
+      marker4.bindTooltip("Apotek Harmoni Sleman");
+
+      var marker5 = L.marker([-7.679775480829699, 110.41893104045093], { icon: customIcon1 });
+      marker5.addTo(map);
+      marker5.bindPopup("<b>Apotek Formula Farma</b><br>JJl. Kaliurang Jl. Degolan No.KM 14.5, Ngemplak, Umbulmartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584");
+      marker5.bindTooltip("Apotek Formula Farma");
+
+      var marker6 = L.marker([-7.674161429530803, 110.39077857444944], { icon: customIcon1 });
+      marker6.addTo(map);
+      marker6.bindPopup("<b>Apotek Balong</b><br>Balong, Donoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker6.bindTooltip("Apotek Balong");
+
+      var marker7 = L.marker([-7.679265116036432, 110.44725516791327], { icon: customIcon1 });
+      marker7.addTo(map);
+      marker7.bindPopup("<b>Apotek CASSA FARMA</b><br>Jl. Grogolan, Area Sawah, Widodomartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584");
+      marker7.bindTooltip("Apotek CASSA FARMA");
+
+      var marker8 = L.marker([-7.686240054627042, 110.4189310405747], { icon: customIcon1 });
+      marker8.addTo(map);
+      marker8.bindPopup("<b>Apotek UII Farma</b><br>Jl. Kaliurang No.Km 14,5, Lodadi, Umbulmartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584");
+      marker8.bindTooltip("Apotek UII Farma");
+
+      var marker9 = L.marker([-7.681306573454828, 110.39833167502664], { icon: customIcon1 });
+      marker9.addTo(map);
+      marker9.bindPopup("<b>Apotek Arroyan Farma</b><br>Jl. Ketulan, RT.4/RW.2, Bulus I, Candibinangun, Pakem, Sleman Regency, Special Region of Yogyakarta 55582");
+      marker9.bindTooltip("Apotek Arroyan Farma");
+
+      var marker10 = L.marker([-7.686069935636095, 110.38854697655351], { icon: customIcon1 });
+      marker10.addTo(map);
+      marker10.bindPopup("<b>Apotek Jaya Farma</b><br>Jl. Palagan Tentara Pelajar, Kayunan, Donoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker10.bindTooltip("Apotek Jaya Farma");
+
+      var marker11 = L.marker([-7.700529814947989, 110.44725516769246], { icon: customIcon1 });
+      marker11.addTo(map);
+      marker11.bindPopup("<b>Apotek Kusuma Sehat</b><br>Jl. Besi Jangkang, Jetis, Widodomartani, Kec. Ngemplak, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55584");
+      marker11.bindTooltip("Apotek Kusuma Sehat");
+
+      var marker12 = L.marker([-7.694471639546838, 110.41676579897204], { icon: customIcon1 });
+      marker12.addTo(map);
+      marker12.bindPopup("<b>Apotek Kimia Farma Besi</b><br>Jl. Kaliurang No.KM.13, Besi, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker12.bindTooltip("Apotek Kimia Farma Besi");
+
+      var marker13 = L.marker([-7.698316571675137, 110.41588092719046], { icon: customIcon1 });
+      marker13.addTo(map);
+      marker13.bindPopup("<b>Apotek K-24 Besi Sleman</b><br>Jl. Kaliurang KM 13, Blk. B No.10 5, Besi, Sukoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker13.bindTooltip("Apotek K-24 Besi Sleman");
+
+      var marker14 = L.marker([-7.701098201743011, 110.41496229297802], { icon: customIcon1 });
+      marker14.addTo(map);
+      marker14.bindPopup("<b>Apotek Pharm24 Jakal</b><br>Jl. Kaliurang No.12, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker14.bindTooltip("Apotek Pharm24 Jakal");
+
+      var marker15 = L.marker([-7.7000843779089205, 110.40957911904418], { icon: customIcon1 });
+      marker15.addTo(map);
+      marker15.bindPopup("<b>Apotek Pandanaran</b><br>Pandanaran, Candi Winangun, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker15.bindTooltip("Apotek Pandanaran");
+
+      var marker16 = L.marker([-7.707238941224853, 110.38768918107826], { icon: customIcon1 });
+      marker16.addTo(map);
+      marker16.bindPopup("<b>Apotek K-24 Rejodani</b><br>Jl. Palagan Tentara Pelajar No.Km. 10, Tambak Rejo, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker16.bindTooltip("Apotek K-24 Rejodani");
+
+      var marker17 = L.marker([-7.709389890054214, 110.3892364218725], { icon: customIcon1 });
+      marker17.addTo(map);
+      marker17.bindPopup("<b>Apotek Aneka Syifa 1</b><br>Jl. Rejodani, Rejodani, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581");
+      marker17.bindTooltip("Apotek Aneka Syifa 1");
+
+      var marker18 = L.marker([-7.743063790489782, 110.3998505726207], { icon: customIcon1 });
+      marker18.addTo(map);
+      marker18.bindPopup("<b>Apotek Rajawali</b><br>Jalan Rajawali No.55 Sanggrahan, Manukan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283");
+      marker18.bindTooltip("Apotek Rajawali");
+
+      var marker19 = L.marker([-7.747412779740229, 110.40127955917337], { icon: customIcon1 });
+      marker19.addTo(map);
+      marker19.bindPopup("<b>Apotek Anggajaya</b><br>Jl. Anggajaya 2 No.11, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281");
+      marker19.bindTooltip("Apotek Anggajaya");
+
+      var marker20 = L.marker([-7.7494355501377, 110.4028106161941], { icon: customIcon1 });
+      marker20.addTo(map);
+      marker20.bindPopup("<b>Apotek Asri</b><br>JJalan Anggajaya Krangkungan, Condong catur, Depok, Sanggrahan, Condongcatur, Kecamatan Sleman, Sleman Regency, Special Region of Yogyakarta 55384");
+      marker20.bindTooltip("Apotek Asri");
+
+      var marker21 = L.marker([-7.753379924459214, 110.40679136444801], { icon: customIcon1 });
+      marker21.addTo(map);
+      marker21.bindPopup("<b>Apotek Visi Pharma</b><br>Jl. Cemp. No.32, Perumnas Condong Catur, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281");
+      marker21.bindTooltip("Apotek Visi Pharma");
+
+      var marker22 = L.marker([-7.756110623534083, 110.39464497888945], { icon: customIcon1 });
+      marker22.addTo(map);
+      marker22.bindPopup("<b>Apotek Depok</b><br>Jl. Anggajaya No.1, RT.01/RW.29, Gejayan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283");
+      marker22.bindTooltip("Apotek Depok");
+
+      var marker23 = L.marker([-7.757627670896428, 110.3706584194996], { icon: customIcon1 });
+      marker23.addTo(map);
+      marker23.bindPopup("<b>Apotek Optima</b><br>Jl. Monjali No.91A Lantai 1, Gemawang, Sinduadi, gemawang, Yogyakarta, Daerah Istimewa Yogyakarta 55284");
+      marker23.bindTooltip("Apotek Optima");
+
+      var marker24 = L.marker([-7.769763852967265, 110.39035801915], { icon: customIcon1 });
+      marker24.addTo(map);
+      marker24.bindPopup("<b>Apotek K-24 Gejayan</b><br>Jl. Affandi No.29, Santren, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281");
+      marker24.bindTooltip("Apotek K-24 Gejayan");
+
+      var marker25 = L.marker([-7.763999210314088, 110.41067004208944], { icon: customIcon1 });
+      marker25.addTo(map);
+      marker25.bindPopup("<b>Apotek SS</b><br>Jl. Seturan Raya No.3, Kledokan, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281");
+      marker25.bindTooltip("Apotek SS");
+
+      var marker26 = L.marker([-7.7662241694793215, 110.40617894149527], { icon: customIcon1 });
+      marker26.addTo(map);
+      marker26.bindPopup("<b>Apotek Lunar</b><br>Jl. Perumnas, Kledokan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281");
+      marker26.bindTooltip("Apotek Lunar");
+
+      var marker27 = L.marker([-7.772292180028509, 110.41628391783212], { icon: customIcon1 });
+      marker27.addTo(map);
+      marker27.bindPopup("<b>Apotek Anugerah</b><br>Jl. Babarsari No.88, Tambak Bayan, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281");
+      marker27.bindTooltip("Apotek Anugerah");
+
+      var marker28 = L.marker([-7.771556789894338, 110.36251882024648], { icon: customIcon1 });
+      marker28.addTo(map);
+      marker28.bindPopup("<b>Apotek K-24 Jl Magelang</b><br>Jalan Magelang No.160-162 Kricak, Karangwaru, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55241");
+      marker28.bindTooltip("Apotek K-24 Jl Magelang");
+
+      var marker29 = L.marker([-7.778870367391631, 110.36337712715334], { icon: customIcon1 });
+      marker29.addTo(map);
+      marker29.bindPopup("<b>Apotek Rajawali</b><br>Jl. Tebet Timur Dalam No.22, Tebet, Jakarta Selatan");
+      marker29.bindTooltip("Apotek Rajawali");
+    </script>
+  </body>
+</html>
